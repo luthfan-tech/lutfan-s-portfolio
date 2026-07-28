@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lutfan Mohammed Asif | Developer Portfolio</title>
+
+    <!-- Fonts: Space Grotesk for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                cyan: "#00f0ff",
+                blue: "#0057ff",
+                dark: "#030303",
+                surface: "#0a0a0a",
+              },
+            },
+            animation: {
+              "spin-slow": "spin 8s linear infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body
+    class="bg-brand-dark text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-brand-cyan selection:text-black"
+  >
+    <!-- Background Effects -->
+    <div
+      class="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-blue/10 via-brand-dark to-brand-dark"
+    ></div>
+    <div
+      class="fixed inset-0 z-[-1] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"
+    ></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav border-b border-white/5 py-4"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a
+          href="#hero"
+          class="text-xl font-display font-bold text-white tracking-tight flex items-center gap-2"
+        >
+          <span class="text-brand-cyan">&lt;</span>Lutfan<span
+            class="text-brand-cyan"
+            >/&gt;</span
+          >
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium">
+          <a href="#about" class="hover:text-brand-cyan transition-colors"
+            >About</a
+          >
+          <a href="#projects" class="hover:text-brand-cyan transition-colors"
+            >Projects</a
+          >
+          <a href="#blog" class="hover:text-brand-cyan transition-colors"
+            >Blog</a
+          >
+          <a href="#contact" class="hover:text-brand-cyan transition-colors"
+            >Contact</a
+          >
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-2xl text-white" id="mobile-menu-btn">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 text-2xl font-display font-bold md:hidden"
+    >
+      <a
+        href="#about"
+        class="mobile-link hover:text-brand-cyan transition-colors"
+        >About</a
+      >
+      <a
+        href="#projects"
+        class="mobile-link hover:text-brand-cyan transition-colors"
+        >Projects</a
+      >
+      <a
+        href="#blog"
+        class="mobile-link hover:text-brand-cyan transition-colors"
+        >Blog</a
+      >
+      <a
+        href="#contact"
+        class="mobile-link hover:text-brand-cyan transition-colors"
+        >Contact</a
+      >
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 pt-32 pb-20">
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="min-h-[85vh] flex flex-col justify-center reveal"
+      >
+        <div class="inline-block mb-4">
+          <span
+            class="glass-pill px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-cyan uppercase"
+          >
+            B.Tech CSE Student
+          </span>
+        </div>
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight mb-6"
+        >
+          Self-Driven <br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-blue"
+          >
+            Builder & Developer.
+          </span>
+        </h1>
+        <p
+          class="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed"
+        >
+          Hi, I'm Lutfan. I focus on full-stack development, cybersecurity, and
+          AI. I build real projects to understand how things work, turning logic
+          and curiosity into production-ready software.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="#projects"
+            class="group relative px-8 py-3 bg-white text-black font-semibold rounded-lg overflow-hidden transition-transform hover:scale-105 active:scale-95"
+          >
+            <span class="relative z-10 flex items-center gap-2"
+              >View Projects
+              <i
+                class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"
+              ></i
+            ></span>
+          </a>
+          <a
+            href="https://github.com/luthfan-tech"
+            target="_blank"
+            class="glass-btn px-8 py-3 font-semibold rounded-lg text-white flex items-center gap-2 hover:border-brand-cyan/50 transition-all hover:scale-105 active:scale-95"
+          >
+            <i class="ph ph-github-logo text-xl"></i> GitHub
+          </a>
+        </div>
+      </section>
+
+      <!-- Bento Grid: About, Education, Experience, Skills -->
+      <section id="about" class="py-20 reveal">
+        <h2
+          class="text-3xl font-display font-bold text-white mb-10 flex items-center gap-4"
+        >
+          <span class="w-8 h-[1px] bg-brand-cyan"></span> Identity & Arsenal
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- About Me (Spans 2 columns on desktop) -->
+          <div
+            class="glass-card md:col-span-2 p-8 rounded-2xl flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <i class="ph ph-user-focus text-3xl text-brand-cyan"></i>
+                <h3 class="text-xl font-display font-semibold text-white">
+                  Who I Am
+                </h3>
+              </div>
+              <p class="text-gray-400 leading-relaxed">
+                I am currently a first-year Computer Science engineering student
+                learning Python and building projects alongside my degree. I
+                value curiosity, logic, and practical learning. Instead of
+                waiting for assignments, I spend my time maintaining my GitHub,
+                building full-stack applications, and exploring the
+                intersections of AI and cybersecurity.
+              </p>
+              <p class="text-gray-400 leading-relaxed mt-4">
+                When I'm not writing code, I'm a massive cinephile—I watch and
+                analyze films from every genre, which feeds my creative approach
+                to problem-solving.
+              </p>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="glass-card p-8 rounded-2xl flex flex-col">
+            <div class="flex items-center gap-3 mb-6">
+              <i class="ph ph-terminal-window text-3xl text-brand-cyan"></i>
+              <h3 class="text-xl font-display font-semibold text-white">
+                Experience
+              </h3>
+            </div>
+            <div class="relative border-l border-white/10 ml-3 pl-6 pb-4">
+              <div
+                class="absolute w-3 h-3 bg-brand-cyan rounded-full -left-[6.5px] top-1 shadow-[0_0_10px_#00f0ff]"
+              ></div>
+              <h4 class="text-white font-medium">Independent Developer</h4>
+              <p class="text-xs text-brand-cyan mb-2">Present</p>
+              <p class="text-sm text-gray-400">
+                Architecting personal projects, learning through hands-on
+                practice, and continuously improving my skills.
+              </p>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="glass-card p-8 rounded-2xl flex flex-col">
+            <div class="flex items-center gap-3 mb-6">
+              <i class="ph ph-graduation-cap text-3xl text-brand-cyan"></i>
+              <h3 class="text-xl font-display font-semibold text-white">
+                Education
+              </h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="text-white font-medium">B.Tech in CSE</h4>
+                <p class="text-sm text-gray-400">First-year student</p>
+              </div>
+              <hr class="border-white/5" />
+              <div>
+                <h4 class="text-white font-medium">12th Passout</h4>
+                <p class="text-sm text-gray-400">Science Stream</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills (Spans 2 columns) -->
+          <div class="glass-card md:col-span-2 p-8 rounded-2xl">
+            <div class="flex items-center gap-3 mb-6">
+              <i class="ph ph-code text-3xl text-brand-cyan"></i>
+              <h3 class="text-xl font-display font-semibold text-white">
+                Technical Arsenal
+              </h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">MySQL & Databases</span>
+              <span class="skill-tag">Full-Stack Basics</span>
+              <span class="skill-tag">Kali Linux Basics</span>
+              <span class="skill-tag">Cybersecurity Fundamentals</span>
+              <span class="skill-tag">Networking Basics</span>
+              <span class="skill-tag">AI Integrations</span>
+              <span class="skill-tag">Logical Thinking</span>
+              <span class="skill-tag">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 reveal">
+        <div class="flex justify-between items-end mb-10">
+          <h2
+            class="text-3xl font-display font-bold text-white flex items-center gap-4"
+          >
+            <span class="w-8 h-[1px] bg-brand-cyan"></span> Selected Works
+          </h2>
+          <a
+            href="https://github.com/luthfan-tech"
+            target="_blank"
+            class="hidden md:flex text-sm text-gray-400 hover:text-brand-cyan transition-colors items-center gap-1"
+          >
+            View full archive <i class="ph ph-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <!-- Project Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+          id="projects-container"
+        >
+          <!-- Populated via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="py-20 reveal">
+        <h2
+          class="text-3xl font-display font-bold text-white mb-10 flex items-center gap-4"
+        >
+          <span class="w-8 h-[1px] bg-brand-cyan"></span> Writing & Thoughts
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="blog-container">
+          <!-- Populated via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 reveal text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+          Let's Build Together
+        </h2>
+        <p class="text-gray-400 mb-10 text-lg">
+          I am currently open to collaborations, open-source contributions, or
+          just a good conversation about tech and movies. Drop a message.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button
+            onclick="copyEmail()"
+            id="copy-btn"
+            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
+          >
+            <i class="ph ph-envelope-simple text-xl"></i>
+            <span id="copy-text">Copy Email</span>
+          </button>
+          <a
+            href="https://github.com/luthfan-tech"
+            target="_blank"
+            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
+          >
+            <i class="ph ph-github-logo text-xl"></i> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lutfan-mohammed-asif"
+            target="_blank"
+            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
+          >
+            <i class="ph ph-linkedin-logo text-xl"></i> LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 mt-10">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+      >
+        <p>&copy; 2026 Lutfan Mohammed Asif. Built with logic and code.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <p>
+            Status: <span class="text-brand-cyan">Building & Learning</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
