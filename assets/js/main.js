@@ -133,7 +133,7 @@ const blogs = [
 // --- 2. Typewriter Effect ---
 
 const typeText = "Builder & Developer.";
-const typeSpeed = 70; // ms per char
+const typeSpeed = 70;
 const typeElement = document.getElementById("typewriter");
 
 let typeIndex = 0;
@@ -146,12 +146,10 @@ function typeWriter() {
   }
 }
 
-// Start typing after hero loads
 setTimeout(typeWriter, 600);
 
 // --- 3. Render Projects & Blogs ---
 
-// Render Projects
 const projectsContainer = document.getElementById("projects-container");
 if (projectsContainer) {
   projectsContainer.innerHTML = "";
@@ -184,7 +182,6 @@ if (projectsContainer) {
   });
 }
 
-// Render Blogs
 const blogContainer = document.getElementById("blog-container");
 if (blogContainer) {
   blogContainer.innerHTML = "";
@@ -213,8 +210,8 @@ if (blogContainer) {
 
 // --- 4. Interactive Blog Modal Reader ---
 
-// Modal HTML already in body from your original script; keep it as is.
-// If you want, I can re-add it here too.
+// Make sure this modal HTML exists in index.html before using these functions.
+// If your old index.html already has it, keep it.
 
 function openBlogModal(index) {
   const blog = blogs[index];
@@ -245,7 +242,6 @@ function closeBlogModal() {
   }, 300);
 }
 
-// Close modal when clicking outside content box
 document.addEventListener("click", (e) => {
   const modal = document.getElementById("blog-modal");
   if (e.target === modal) {
@@ -253,7 +249,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Close modal on Escape key
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeBlogModal();
@@ -286,7 +281,6 @@ const revealOnScroll = new IntersectionObserver(function (entries, observer) {
 
 revealSections.forEach((el) => revealOnScroll.observe(el));
 
-// Also handle skills container if you want them to pop in
 const skillsContainer = document.getElementById("skills-container");
 if (skillsContainer) {
   const skillTags = skillsContainer.querySelectorAll(".skill-tag");
@@ -333,19 +327,4 @@ if (mobileMenuBtn && mobileMenu) {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("translate-x-full");
       mobileMenuBtn.innerHTML = '<i class="ph ph-list"></i>';
-      menuOpen = false;
-    });
-  });
-}
-
-// --- 7. Copy Email Function ---
-
-function copyEmail() {
-  const email = "lutfan.mohammed@example.com"; // Replace with your primary email
-  navigator.clipboard.writeText(email).then(() => {
-    const copyText = document.getElementById("copy-text");
-    const icon = document.querySelector("#copy-btn i");
-
-    if (copyText && icon) {
-      copyText.innerText = "Copied!";
-      icon.classList.replace
+     
