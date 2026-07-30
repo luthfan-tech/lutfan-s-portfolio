@@ -294,4 +294,58 @@ if (skillsContainer) {
     tag.style.opacity = "0";
     tag.style.transform = "translateY(12px) scale(0.95)";
     tag.style.transition = "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
-    tag.style.transitionDelay =
+    tag.style.transitionDelay = `${idx * 0.04}s`;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tag.style.opacity = "1";
+          tag.style.transform = "translateY(0) scale(1)";
+          observer.unobserve(tag);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(tag);
+  });
+}
+
+// --- 6. Mobile Navigation Menu ---
+
+const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileLinks = document.querySelectorAll(".mobile-link");
+let menuOpen = false;
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener("click", () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.classList.remove("translate-x-full");
+      mobileMenuBtn.innerHTML = '<i class="ph ph-x"></i>';
+    } else {
+      mobileMenu.classList.add("translate-x-full");
+      mobileMenuBtn.innerHTML = '<i class="ph ph-list"></i>';
+    }
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("translate-x-full");
+      mobileMenuBtn.innerHTML = '<i class="ph ph-list"></i>';
+      menuOpen = false;
+    });
+  });
+}
+
+// --- 7. Copy Email Function ---
+
+function copyEmail() {
+  const email = "lutfan.mohammed@example.com"; // Replace with your primary email
+  navigator.clipboard.writeText(email).then(() => {
+    const copyText = document.getElementById("copy-text");
+    const icon = document.querySelector("#copy-btn i");
+
+    if (copyText && icon) {
+      copyText.innerText = "Copied!";
+      icon.classList.replace
