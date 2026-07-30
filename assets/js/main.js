@@ -1,16 +1,3 @@
-// --- 0. Mouse-follow glow for cards and tags ---
-const glowElements = document.querySelectorAll(".glass-card, .skill-tag");
-
-glowElements.forEach((el) => {
-  el.addEventListener("mousemove", (e) => {
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    el.style.setProperty("--mouse-x", `${x}px`);
-    el.style.setProperty("--mouse-y", `${y}px`);
-  });
-});
-
 // --- 1. Data Definitions ---
 
 const projects = [
@@ -130,88 +117,91 @@ const blogs = [
   },
 ];
 
-// --- 2. Typewriter Effect ---
+// --- 2. Render Projects & Blogs ---
 
-const typeText = "Builder & Developer.";
-const typeSpeed = 70;
-const typeElement = document.getElementById("typewriter");
-
-let typeIndex = 0;
-
-function typeWriter() {
-  if (typeIndex < typeText.length) {
-    typeElement.textContent += typeText.charAt(typeIndex);
-    typeIndex++;
-    setTimeout(typeWriter, typeSpeed);
-  }
-}
-
-setTimeout(typeWriter, 600);
-
-// --- 3. Render Projects & Blogs ---
-
+// Render Projects
 const projectsContainer = document.getElementById("projects-container");
 if (projectsContainer) {
   projectsContainer.innerHTML = "";
-  projects.forEach((project, idx) => {
+  projects.forEach((project) => {
     const techStack = project.tech
       .map(
         (t) =>
-          `<span class="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded border border-white/10">${t}</span>`,
+          `<span class="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">${t}</span>`,
       )
       .join("");
 
     const card = `
-      <div class="glass-card project-card p-6 rounded-2xl group cursor-default reveal-card" data-delay="${idx * 0.08}">
-        <div>
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-xs font-semibold tracking-wider text-brand-cyan uppercase bg-brand-cyan/10 px-2 py-1 rounded border border-brand-cyan/20">${project.status}</span>
-            <a href="${project.github}" target="_blank" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub Repository">
-              <i class="ph ph-github-logo text-2xl"></i>
-            </a>
-          </div>
-          <h3 class="text-xl font-display font-bold text-white mb-2 group-hover:text-brand-cyan transition-colors">${project.name}</h3>
-          <p class="text-sm text-gray-400 mb-6 leading-relaxed">${project.description}</p>
-        </div>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          ${techStack}
-        </div>
-      </div>
-    `;
+            <div class="glass-card project-card p-6 rounded-2xl group cursor-default">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-semibold tracking-wider text-brand-cyan uppercase bg-brand-cyan/10 px-2 py-1 rounded">${project.status}</span>
+                        <a href="${project.github}" target="_blank" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub Repository">
+                            <i class="ph ph-github-logo text-2xl"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-2 group-hover:text-brand-cyan transition-colors">${project.name}</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">${project.description}</p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    ${techStack}
+                </div>
+            </div>
+        `;
     projectsContainer.innerHTML += card;
   });
 }
 
+// Render Blogs
 const blogContainer = document.getElementById("blog-container");
 if (blogContainer) {
   blogContainer.innerHTML = "";
   blogs.forEach((blog, index) => {
     const card = `
-      <div onclick="openBlogModal(${index})" class="glass-card p-6 rounded-2xl flex flex-col justify-between group cursor-pointer reveal-card" data-delay="${index * 0.1}">
-        <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-xs font-semibold text-brand-cyan bg-brand-cyan/10 px-2.5 py-0.5 rounded-full border border-brand-cyan/20">${blog.tag}</span>
-            <span class="text-xs text-gray-500 font-mono">${blog.readTime}</span>
-          </div>
-          <h3 class="text-xl font-display font-bold text-white group-hover:text-brand-cyan transition-colors mb-3">${blog.title}</h3>
-          <p class="text-sm text-gray-400 line-clamp-3 leading-relaxed mb-4">${blog.preview}</p>
-        </div>
-        <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center text-sm text-gray-400">
-          <span class="text-xs text-gray-500">${blog.date}</span>
-          <span class="text-xs font-medium text-brand-cyan flex items-center gap-1 group-hover:underline">
-            Read post <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-          </span>
-        </div>
-      </div>
-    `;
+            <div onclick="openBlogModal(${index})" class="glass-card p-6 rounded-2xl flex flex-col justify-between group cursor-pointer hover:-translate-y-1 transition-all">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-xs font-semibold text-brand-cyan bg-brand-cyan/10 px-2.5 py-0.5 rounded-full">${blog.tag}</span>
+                        <span class="text-xs text-gray-500 font-mono">${blog.readTime}</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white group-hover:text-brand-cyan transition-colors mb-3">${blog.title}</h3>
+                    <p class="text-sm text-gray-400 line-clamp-3 leading-relaxed mb-4">${blog.preview}</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center text-sm text-gray-400">
+                    <span class="text-xs text-gray-500">${blog.date}</span>
+                    <span class="text-xs font-medium text-brand-cyan flex items-center gap-1 group-hover:underline">
+                        Read post <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </div>
+            </div>
+        `;
     blogContainer.innerHTML += card;
   });
 }
 
-// --- 4. Interactive Blog Modal Reader ---
+// --- 3. Interactive Blog Modal Reader ---
 
-// Make sure this modal HTML exists in index.html before using these functions.
-// If your old index.html already has it, keep it.
+// Dynamically create Modal elements in DOM
+document.body.insertAdjacentHTML(
+  "beforeend",
+  `
+    <div id="blog-modal" class="fixed inset-0 z-[100] hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-6 transition-opacity duration-300 opacity-0">
+        <div class="glass-card max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-2xl p-6 md:p-8 relative border border-white/10 bg-brand-dark/95 shadow-2xl">
+            <button onclick="closeBlogModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl transition-colors" aria-label="Close modal">
+                <i class="ph ph-x"></i>
+            </button>
+            <div id="modal-tag" class="inline-block text-xs font-semibold text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full mb-4"></div>
+            <h2 id="modal-title" class="text-2xl md:text-3xl font-display font-bold text-white mb-2"></h2>
+            <div class="flex items-center gap-4 text-xs text-gray-400 mb-6 pb-4 border-b border-white/10">
+                <span id="modal-date"></span>
+                <span>•</span>
+                <span id="modal-readtime"></span>
+            </div>
+            <div id="modal-content" class="space-y-4 text-gray-300 text-base leading-relaxed"></div>
+        </div>
+    </div>
+`,
+);
 
 function openBlogModal(index) {
   const blog = blogs[index];
@@ -242,6 +232,7 @@ function closeBlogModal() {
   }, 300);
 }
 
+// Close modal when clicking outside content box
 document.addEventListener("click", (e) => {
   const modal = document.getElementById("blog-modal");
   if (e.target === modal) {
@@ -249,62 +240,29 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Close modal on Escape key
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeBlogModal();
   }
 });
 
-// --- 5. Scroll Reveal with Stagger ---
+// --- 4. Scroll Reveal Observer ---
 
-const revealSections = document.querySelectorAll(".reveal-section");
-const revealOptions = { threshold: 0.12, rootMargin: "0px 0px -60px 0px" };
+const revealElements = document.querySelectorAll(".reveal");
+const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
 const revealOnScroll = new IntersectionObserver(function (entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
-
-    const section = entry.target;
-    section.classList.add("active");
-
-    const cards = section.querySelectorAll(".reveal-card");
-    cards.forEach((card, idx) => {
-      const delay = parseFloat(card.dataset.delay || 0) + idx * 0.08;
-      setTimeout(() => {
-        card.classList.add("active");
-      }, delay * 1000);
-    });
-
-    observer.unobserve(section);
+    entry.target.classList.add("active");
+    observer.unobserve(entry.target);
   });
 }, revealOptions);
 
-revealSections.forEach((el) => revealOnScroll.observe(el));
+revealElements.forEach((el) => revealOnScroll.observe(el));
 
-const skillsContainer = document.getElementById("skills-container");
-if (skillsContainer) {
-  const skillTags = skillsContainer.querySelectorAll(".skill-tag");
-  skillTags.forEach((tag, idx) => {
-    tag.style.opacity = "0";
-    tag.style.transform = "translateY(12px) scale(0.95)";
-    tag.style.transition = "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
-    tag.style.transitionDelay = `${idx * 0.04}s`;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          tag.style.opacity = "1";
-          tag.style.transform = "translateY(0) scale(1)";
-          observer.unobserve(tag);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(tag);
-  });
-}
-
-// --- 6. Mobile Navigation Menu ---
+// --- 5. Mobile Navigation Menu ---
 
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -327,4 +285,27 @@ if (mobileMenuBtn && mobileMenu) {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("translate-x-full");
       mobileMenuBtn.innerHTML = '<i class="ph ph-list"></i>';
-     
+      menuOpen = false;
+    });
+  });
+}
+
+// --- 6. Copy Email Function ---
+
+function copyEmail() {
+  const email = "lutfan.mohammed@example.com"; // Replace with your primary email
+  navigator.clipboard.writeText(email).then(() => {
+    const copyText = document.getElementById("copy-text");
+    const icon = document.querySelector("#copy-btn i");
+
+    if (copyText && icon) {
+      copyText.innerText = "Copied!";
+      icon.classList.replace("ph-envelope-simple", "ph-check");
+
+      setTimeout(() => {
+        copyText.innerText = "Copy Email";
+        icon.classList.replace("ph-check", "ph-envelope-simple");
+      }, 2000);
+    }
+  });
+}
