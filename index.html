@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -37,14 +37,7 @@
             },
             animation: {
               "spin-slow": "spin 8s linear infinite",
-              "float": "float 6s ease-in-out infinite",
             },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-10px)" },
-              }
-            }
           },
         },
       };
@@ -64,10 +57,6 @@
       class="fixed inset-0 z-[-1] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"
     ></div>
 
-    <!-- Animated Glow Orbs -->
-    <div class="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-brand-cyan/10 blur-[120px] animate-float pointer-events-none"></div>
-    <div class="fixed bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-brand-blue/10 blur-[120px] animate-float pointer-events-none" style="animation-delay: 1s;"></div>
-
     <!-- Navigation -->
     <nav
       class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav border-b border-white/5 py-4"
@@ -76,29 +65,26 @@
       <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a
           href="#hero"
-          class="text-xl font-display font-bold text-white tracking-tight flex items-center gap-2 group"
+          class="text-xl font-display font-bold text-white tracking-tight flex items-center gap-2"
         >
-          <span class="text-brand-cyan group-hover:drop-shadow-[0_0_10px_#00f0ff] transition-all">&lt;</span>Lutfan<span
-            class="text-brand-cyan group-hover:drop-shadow-[0_0_10px_#00f0ff] transition-all"
-          >/&gt;</span>
+          <span class="text-brand-cyan">&lt;</span>Lutfan<span
+            class="text-brand-cyan"
+            >/&gt;</span
+          >
         </a>
         <div class="hidden md:flex gap-8 text-sm font-medium">
-          <a href="#about" class="nav-link hover:text-brand-cyan transition-colors relative">
-            About
-            <span class="nav-underline"></span>
-          </a>
-          <a href="#projects" class="nav-link hover:text-brand-cyan transition-colors relative">
-            Projects
-            <span class="nav-underline"></span>
-          </a>
-          <a href="#blog" class="nav-link hover:text-brand-cyan transition-colors relative">
-            Blog
-            <span class="nav-underline"></span>
-          </a>
-          <a href="#contact" class="nav-link hover:text-brand-cyan transition-colors relative">
-            Contact
-            <span class="nav-underline"></span>
-          </a>
+          <a href="#about" class="hover:text-brand-cyan transition-colors"
+            >About</a
+          >
+          <a href="#projects" class="hover:text-brand-cyan transition-colors"
+            >Projects</a
+          >
+          <a href="#blog" class="hover:text-brand-cyan transition-colors"
+            >Blog</a
+          >
+          <a href="#contact" class="hover:text-brand-cyan transition-colors"
+            >Contact</a
+          >
         </div>
         <!-- Mobile Menu Button -->
         <button class="md:hidden text-2xl text-white" id="mobile-menu-btn">
@@ -139,9 +125,9 @@
       <!-- Hero Section -->
       <section
         id="hero"
-        class="min-h-[85vh] flex flex-col justify-center"
+        class="min-h-[85vh] flex flex-col justify-center reveal"
       >
-        <div class="inline-block mb-4 hero-badge">
+        <div class="inline-block mb-4">
           <span
             class="glass-pill px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-cyan uppercase"
           >
@@ -151,21 +137,21 @@
         <h1
           class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight mb-6"
         >
-          <span class="hero-line">Self-Driven</span> <br />
+          Self-Driven <br />
           <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-blue hero-line"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-blue"
           >
-            <span id="typewriter"></span><span class="typing-cursor"></span>
+            Builder & Developer.
           </span>
         </h1>
         <p
-          class="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed hero-sub"
+          class="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed"
         >
           Hi, I'm Lutfan. I focus on full-stack development, cybersecurity, and
           AI. I build real projects to understand how things work, turning logic
           and curiosity into production-ready software.
         </p>
-        <div class="flex flex-wrap gap-4 hero-cta">
+        <div class="flex flex-wrap gap-4">
           <a
             href="#projects"
             class="group relative px-8 py-3 bg-white text-black font-semibold rounded-lg overflow-hidden transition-transform hover:scale-105 active:scale-95"
@@ -176,7 +162,6 @@
                 class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"
               ></i
             ></span>
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan/40 to-brand-blue/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
           <a
             href="https://github.com/luthfan-tech"
@@ -189,7 +174,7 @@
       </section>
 
       <!-- Bento Grid: About, Education, Experience, Skills -->
-      <section id="about" class="py-20 reveal-section">
+      <section id="about" class="py-20 reveal">
         <h2
           class="text-3xl font-display font-bold text-white mb-10 flex items-center gap-4"
         >
@@ -199,7 +184,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- About Me (Spans 2 columns on desktop) -->
           <div
-            class="glass-card md:col-span-2 p-8 rounded-2xl flex flex-col justify-between reveal-card"
+            class="glass-card md:col-span-2 p-8 rounded-2xl flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center gap-3 mb-4">
@@ -225,7 +210,7 @@
           </div>
 
           <!-- Experience -->
-          <div class="glass-card p-8 rounded-2xl flex flex-col reveal-card">
+          <div class="glass-card p-8 rounded-2xl flex flex-col">
             <div class="flex items-center gap-3 mb-6">
               <i class="ph ph-terminal-window text-3xl text-brand-cyan"></i>
               <h3 class="text-xl font-display font-semibold text-white">
@@ -246,7 +231,7 @@
           </div>
 
           <!-- Education -->
-          <div class="glass-card p-8 rounded-2xl flex flex-col reveal-card">
+          <div class="glass-card p-8 rounded-2xl flex flex-col">
             <div class="flex items-center gap-3 mb-6">
               <i class="ph ph-graduation-cap text-3xl text-brand-cyan"></i>
               <h3 class="text-xl font-display font-semibold text-white">
@@ -267,14 +252,14 @@
           </div>
 
           <!-- Skills (Spans 2 columns) -->
-          <div class="glass-card md:col-span-2 p-8 rounded-2xl reveal-card">
+          <div class="glass-card md:col-span-2 p-8 rounded-2xl">
             <div class="flex items-center gap-3 mb-6">
               <i class="ph ph-code text-3xl text-brand-cyan"></i>
               <h3 class="text-xl font-display font-semibold text-white">
                 Technical Arsenal
               </h3>
             </div>
-            <div class="flex flex-wrap gap-3" id="skills-container">
+            <div class="flex flex-wrap gap-3">
               <span class="skill-tag">Python</span>
               <span class="skill-tag">MySQL & Databases</span>
               <span class="skill-tag">Full-Stack Basics</span>
@@ -290,7 +275,7 @@
       </section>
 
       <!-- Projects Section -->
-      <section id="projects" class="py-20 reveal-section">
+      <section id="projects" class="py-20 reveal">
         <div class="flex justify-between items-end mb-10">
           <h2
             class="text-3xl font-display font-bold text-white flex items-center gap-4"
@@ -316,7 +301,7 @@
       </section>
 
       <!-- Blog Section -->
-      <section id="blog" class="py-20 reveal-section">
+      <section id="blog" class="py-20 reveal">
         <h2
           class="text-3xl font-display font-bold text-white mb-10 flex items-center gap-4"
         >
@@ -328,7 +313,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-24 reveal-section text-center max-w-3xl mx-auto">
+      <section id="contact" class="py-24 reveal text-center max-w-3xl mx-auto">
         <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
           Let's Build Together
         </h2>
@@ -348,4 +333,35 @@
           <a
             href="https://github.com/luthfan-tech"
             target="_blank"
-            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/1
+            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
+          >
+            <i class="ph ph-github-logo text-xl"></i> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lutfan-mohammed-asif"
+            target="_blank"
+            class="glass-btn px-8 py-4 rounded-xl text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
+          >
+            <i class="ph ph-linkedin-logo text-xl"></i> LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 mt-10">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+      >
+        <p>&copy; 2026 Lutfan Mohammed Asif. Built with logic and code.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <p>
+            Status: <span class="text-brand-cyan">Building & Learning</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
